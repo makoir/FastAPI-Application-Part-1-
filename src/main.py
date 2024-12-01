@@ -41,7 +41,8 @@ def five_days_cve():
 def ten_new_cve():
     try:
         if vuln:
-            return vuln[:10]
+            sort_response = sorted(vuln, key=lambda x: x['dateAdded'])
+            return sort_response[-10:]
         else:
             return "No vulneabilities"
     except Exception as error:
